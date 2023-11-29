@@ -1,15 +1,3 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:17-jre-slim
-
-# Set the working directory to /app
-WORKDIR /app
-
-# Copy the JAR file into the container at /app
-COPY target/blogApplication-0.0.1-SNAPSHOT.jar .
-
-# Expose the port your app runs on
-EXPOSE 8080
-
-# Specify the command to run on container startup
-CMD ["java", "-jar", "blogApplication-0.0.1-SNAPSHOT.jar"]
-
+FROM openjdk:21
+ADD ./docker-spring-boot.jar docker-spring-boot.jar
+ENTRYPOINT ["java","-jar","docker-spring-boot.jar"]
