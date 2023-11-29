@@ -103,10 +103,6 @@ public class PostController {
 
         Pageable pageable = PageRequest.of(pageNumber-1,6);
 
-        System.out.println(authors);
-        System.out.println(tags);
-        System.out.println(search);
-
         Page<Post> posts = postService.getPosts(authors, tags, search, sortField, order, pageable);
 
         search = search==null ? "" : search;
